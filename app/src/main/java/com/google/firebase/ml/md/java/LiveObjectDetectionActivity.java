@@ -45,6 +45,7 @@ import com.google.firebase.ml.md.java.camera.WorkflowModel;
 import com.google.firebase.ml.md.java.camera.WorkflowModel.WorkflowState;
 import com.google.firebase.ml.md.java.camera.CameraSource;
 import com.google.firebase.ml.md.java.camera.CameraSourcePreview;
+import com.google.firebase.ml.md.java.ext.ImageDetectionUtils;
 import com.google.firebase.ml.md.java.objectdetection.MultiObjectProcessor;
 import com.google.firebase.ml.md.java.objectdetection.ProminentObjectProcessor;
 import com.google.firebase.ml.md.java.productsearch.BottomSheetScrimView;
@@ -168,8 +169,10 @@ public class LiveObjectDetectionActivity extends AppCompatActivity implements On
       workflowModel.onSearchButtonClicked();
 
     } else if (id == R.id.bottom_sheet_scrim_view) {
-      bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+      // bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
+      ImageDetectionUtils.saveBitmap(
+          getBaseContext(), findViewById(android.R.id.content), objectThumbnailForBottomSheet);
     } else if (id == R.id.close_button) {
       onBackPressed();
 
@@ -186,7 +189,6 @@ public class LiveObjectDetectionActivity extends AppCompatActivity implements On
       // Sets as disabled to prevent the user from clicking on it too fast.
       settingsButton.setEnabled(false);
       startActivity(new Intent(this, SettingsActivity.class));
-
     }
   }
 
@@ -315,6 +317,10 @@ public class LiveObjectDetectionActivity extends AppCompatActivity implements On
             slidingSheetUpFromHiddenState = true;
             bottomSheetBehavior.setPeekHeight(preview.getHeight() / 2);
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            ImageDetectionUtils.saveBitmap(
+                getBaseContext(),
+                findViewById(android.R.id.content),
+                searchedObject.getObjectThumbnail());
           }
         });
   }

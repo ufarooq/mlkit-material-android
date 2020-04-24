@@ -1,101 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.google.firebase.ml.md"
-    android:installLocation="auto">
-
-  <uses-feature android:name="android.hardware.camera"/>
-
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.CAMERA"/>
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.google.firebase.ml.md"
+  android:installLocation="auto">
 
   <application
-      android:allowBackup="false"
-      android:icon="@drawable/logo_mlkit"
-      android:label="@string/app_name"
-      android:supportsRtl="true"
-      android:theme="@style/AppTheme"
-      tools:ignore="GoogleAppIndexingWarning">
-
-    <meta-data
-        android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version"/>
-
+    android:allowBackup="false"
+    android:icon="@drawable/logo_mlkit"
+    android:label="@string/app_name"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme"
+    tools:ignore="GoogleAppIndexingWarning">
+    <!-- ".EntryChoiceActivity" -->
     <activity
-        android:name=".EntryChoiceActivity"
-        android:exported="true"
-        android:screenOrientation="portrait">
+      android:exported="true"
+      android:name=".java.LiveObjectDetectionActivity"
+      android:screenOrientation="portrait">
       <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
 
     <activity
-        android:name=".java.MainActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
+      android:exported="false"
+      android:name=".java.MainActivity"
+      android:screenOrientation="portrait"></activity>
+<!--
+    <activity
+      android:exported="false"
+      android:name=".java.LiveObjectDetectionActivity"
+      android:screenOrientation="portrait"></activity>-->
 
     <activity
-        android:name=".java.LiveObjectDetectionActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
+      android:exported="false"
+      android:name=".java.LiveBarcodeScanningActivity"
+      android:screenOrientation="portrait"></activity>
 
     <activity
-        android:name=".java.LiveBarcodeScanningActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
+      android:exported="false"
+      android:name=".java.StaticObjectDetectionActivity"
+      android:screenOrientation="portrait"></activity>
 
     <activity
-        android:name=".java.StaticObjectDetectionActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
+      android:exported="false"
+      android:label="@string/settings_title"
+      android:name=".java.settings.SettingsActivity"
+      android:screenOrientation="portrait"
+      android:theme="@style/Theme.AppCompat.Light"></activity>
 
     <activity
-        android:name=".java.settings.SettingsActivity"
-        android:exported="false"
-        android:label="@string/settings_title"
-        android:screenOrientation="portrait"
-        android:theme="@style/Theme.AppCompat.Light">
-    </activity>
+      android:exported="false"
+      android:name=".kotlin.MainActivity"
+      android:screenOrientation="portrait"></activity>
 
     <activity
-        android:name=".kotlin.MainActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
+      android:exported="false"
+      android:name=".kotlin.LiveObjectDetectionActivity"
+      android:screenOrientation="portrait"></activity>
 
     <activity
-        android:name=".kotlin.LiveObjectDetectionActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
+      android:exported="false"
+      android:name=".kotlin.LiveBarcodeScanningActivity"
+      android:screenOrientation="portrait"></activity>
 
     <activity
-        android:name=".kotlin.LiveBarcodeScanningActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
+      android:exported="false"
+      android:name=".kotlin.StaticObjectDetectionActivity"
+      android:screenOrientation="portrait"></activity>
 
     <activity
-        android:name=".kotlin.StaticObjectDetectionActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
+      android:exported="false"
+      android:label="@string/settings_title"
+      android:name=".kotlin.settings.SettingsActivity"
+      android:screenOrientation="portrait"
+      android:theme="@style/Theme.AppCompat.Light"></activity>
 
-    <activity
-        android:name=".kotlin.settings.SettingsActivity"
-        android:exported="false"
-        android:label="@string/settings_title"
-        android:screenOrientation="portrait"
-        android:theme="@style/Theme.AppCompat.Light">
-    </activity>
+    <meta-data
+      android:name="com.google.android.gms.version"
+      android:value="@integer/google_play_services_version" />
 
   </application>
+
+  <uses-feature android:name="android.hardware.camera" />
+
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
 

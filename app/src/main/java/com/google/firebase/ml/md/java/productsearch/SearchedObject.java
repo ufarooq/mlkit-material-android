@@ -38,8 +38,8 @@ public class SearchedObject {
   public SearchedObject(Resources resources, DetectedObject object, List<Product> productList) {
     this.object = object;
     this.productList = productList;
-    this.objectThumbnailCornerRadius =
-        resources.getDimensionPixelOffset(R.dimen.bounding_box_corner_radius);
+    this.objectThumbnailCornerRadius = 0;
+        //resources.getDimensionPixelOffset(R.dimen.bounding_box_corner_radius);
   }
 
   public int getObjectIndex() {
